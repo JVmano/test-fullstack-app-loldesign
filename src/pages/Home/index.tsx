@@ -27,7 +27,7 @@ export default function Home (): JSX.Element {
           value={originCity}
           onChange={(e: { target: { value: React.SetStateAction<string> } }) => setOriginCity(e.target.value)}
         >
-          <option value={''} selected disabled hidden>
+          <option value={''} defaultValue={'string'} disabled hidden>
             Origin City
           </option>
           {cityCodesProvider.map((city) => {
@@ -43,7 +43,7 @@ export default function Home (): JSX.Element {
           value={destinationCity}
           onChange={(e: { target: { value: React.SetStateAction<string> } }) => setDestinationCity(e.target.value)}
         >
-          <option value={''} selected disabled hidden>
+          <option value={''} defaultValue={'string'} disabled hidden>
             Destination City
           </option>
           {cityCodesProvider.map((city) => {
@@ -66,7 +66,7 @@ export default function Home (): JSX.Element {
           value={plan}
           onChange={(e: { target: { value: React.SetStateAction<string> } }) => setPlan(e.target.value)}
         >
-          <option value={''} selected disabled hidden>
+          <option value={''} defaultValue={'string'} disabled hidden>
             FaleMais Plan
           </option>
           {callPlansProvider.map((plan) => {
