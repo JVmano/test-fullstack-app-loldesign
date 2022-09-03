@@ -8,7 +8,7 @@ type GlobalButtonType = {
   onClick: () => void
 }
 
-export default function Button (data: GlobalButtonType) {
+export default function Button (data: GlobalButtonType): JSX.Element {
   return (
     <Container>
       <button type={data.type} onClick={data.onClick}>
