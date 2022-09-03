@@ -10,6 +10,13 @@ export default function Home (): JSX.Element {
   const [callTime, setCallTime] = useState('')
   const [plan, setPlan] = useState('')
 
+  const calculatePlan = () => {
+    console.log(originCity)
+    console.log(destinationCity)
+    console.log(callTime)
+    console.log(plan)
+  }
+
   return (
     <>
       <Container>
@@ -75,7 +82,7 @@ export default function Home (): JSX.Element {
           <Button
             type={'button'}
             name={'CALCULATE PLAN'}
-            onClick={() => {}}
+            onClick={() => calculatePlan()}
           />
         </ButtonsGroup>
       </Container>
