@@ -28,7 +28,6 @@ export const Container = styled.div`
     border-width: 2px;
     border-image: linear-gradient(to right, #11998e, #38ef7d);
     border-image-slice: 1;
-    transition: ease-in-out 0.4s;
   }
 
   input::-webkit-outer-spin-button,
