@@ -1,20 +1,20 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { toast } from 'react-toastify'
 import Button from '../../Components/Button'
 import Input from '../../Components/Input'
 import { useModelName } from '../../hooks/useModel'
-import {
-  callPlansProvider,
-  cityCodesProvider
-} from '../../providers/defaultValuesProvider'
-import { calculatePlan } from '../../utils/calculatePlan'
-import { getValuePerMinute } from '../../utils/getValuePerMinute'
+import { DefaultValuesProvider } from '../../providers/defaultValuesProvider'
+import { CalculatePlan } from '../../utils/calculatePlan'
+import { ValuesPerMinute } from '../../utils/getValuePerMinute'
 import ModalPlanResult from './components/ModalPlanResult'
 import { ButtonsGroup, Container, Select } from './style'
 
 export default function Home (): JSX.Element {
   const [status, setStatus] = useState(false)
   const { clearModal, setModal, modal } = useModelName()
+
+  const [cityCodes, setCityCodes] = useState<{ id: string; slug: string; }[]>([])
+  const [callPlans, setCallPlans] = useState<{ id: string; slug: string; }[]>([])
 
   const [originCity, setOriginCity] = useState('')
   const [destinationCity, setDestinationCity] = useState('')
@@ -52,10 +52,10 @@ export default function Home (): JSX.Element {
       if (!callTime) return toast.error('Call Duration missing')
       if (!plan) return toast.error('Plan missing')
 
-      const pricePerMinute = getValuePerMinute({ originCity, destinationCity })
+      const pricePerMinute = new ValuesPerMinute().getValuePerMinute({ originCity, destinationCity })
       if (!pricePerMinute) return toast.error('Inexistent Plan')
 
-      const { noPlanValue, planValue } = calculatePlan({
+      const { noPlanValue, planValue } = new CalculatePlan().calculatePlan({
         pricePerMinute,
         callTime,
         plan
@@ -70,6 +70,14 @@ export default function Home (): JSX.Element {
       return toast.error('Unexpected error')
     }
   }
+
+  useEffect(() => {
+    const tempCityCodes = new DefaultValuesProvider().cityCodes
+    const tempCallPlans = new DefaultValuesProvider().callPlans
+
+    setCityCodes(tempCityCodes)
+    setCallPlans(tempCallPlans)
+  }, [])
 
   return (
     <>
@@ -88,7 +96,7 @@ export default function Home (): JSX.Element {
           <option value={''} defaultValue={'string'} disabled hidden>
             Origin City
           </option>
-          {cityCodesProvider.map((city) => {
+          {cityCodes.map((city) => {
             return (
               <option key={city.id} value={city.id}>
                 {city.slug}
@@ -106,7 +114,7 @@ export default function Home (): JSX.Element {
           <option value={''} defaultValue={'string'} disabled hidden>
             Destination City
           </option>
-          {cityCodesProvider.map((city) => {
+          {cityCodes.map((city) => {
             return (
               <option key={city.id} value={city.id}>
                 {city.slug}
@@ -133,7 +141,7 @@ export default function Home (): JSX.Element {
           <option value={''} defaultValue={'string'} disabled hidden>
             FaleMais Plan
           </option>
-          {callPlansProvider.map((plan) => {
+          {callPlans.map((plan) => {
             return (
               <option key={plan.id} value={plan.id}>
                 {plan.slug}
