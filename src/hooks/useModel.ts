@@ -1,13 +1,13 @@
 import { useRef } from 'react'
 
 export const useModelName = () => {
-  const modal = useRef(null)
+  const modal = useRef<string | null>(null)
 
   const clearModal = () => {
     modal.current = ' '
   }
 
-  const setModal = (name) => {
+  const setModal = (name: string | null) => {
     modal.current = name
   }
 

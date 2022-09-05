@@ -24,7 +24,7 @@ export default function Home (): JSX.Element {
   const [planValue, setPlanValue] = useState('')
   const [noPlanValue, setNoPlanValue] = useState('')
 
-  const handleActiveModal = (modal: string | undefined) => {
+  const handleActiveModal = (modal: string | null) => {
     setModal(modal)
     setStatus(true)
   }
