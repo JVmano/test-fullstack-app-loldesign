@@ -3,7 +3,10 @@ import { toast } from 'react-toastify'
 import Button from '../../Components/Button'
 import Input from '../../Components/Input'
 import { useModelName } from '../../hooks/useModel'
-import { callPlansProvider, cityCodesProvider } from '../../providers/defaultValuesProvider'
+import {
+  callPlansProvider,
+  cityCodesProvider
+} from '../../providers/defaultValuesProvider'
 import { calculatePlan } from '../../utils/calculatePlan'
 import { getValuePerMinute } from '../../utils/getValuePerMinute'
 import ModalPlanResult from './components/ModalPlanResult'
@@ -52,7 +55,11 @@ export default function Home (): JSX.Element {
       const pricePerMinute = getValuePerMinute({ originCity, destinationCity })
       if (!pricePerMinute) return toast.error('Inexistent Plan')
 
-      const { noPlanValue, planValue } = calculatePlan({ pricePerMinute, callTime, plan })
+      const { noPlanValue, planValue } = calculatePlan({
+        pricePerMinute,
+        callTime,
+        plan
+      })
 
       setNoPlanValue(noPlanValue)
       setPlanValue(planValue)
@@ -68,11 +75,15 @@ export default function Home (): JSX.Element {
     <>
       <Container>
         <h2>Telzir</h2>
-        <h1>Fale<span>Mais</span></h1>
+        <h1>
+          Fale<span>Mais</span>
+        </h1>
         <Select
           name='originCity'
           value={originCity}
-          onChange={(e: { target: { value: React.SetStateAction<string> } }) => setOriginCity(e.target.value)}
+          onChange={(e: { target: { value: React.SetStateAction<string> } }) =>
+            setOriginCity(e.target.value)
+          }
         >
           <option value={''} defaultValue={'string'} disabled hidden>
             Origin City
@@ -88,7 +99,9 @@ export default function Home (): JSX.Element {
         <Select
           name='destinationCity'
           value={destinationCity}
-          onChange={(e: { target: { value: React.SetStateAction<string> } }) => setDestinationCity(e.target.value)}
+          onChange={(e: { target: { value: React.SetStateAction<string> } }) =>
+            setDestinationCity(e.target.value)
+          }
         >
           <option value={''} defaultValue={'string'} disabled hidden>
             Destination City
@@ -103,7 +116,9 @@ export default function Home (): JSX.Element {
         </Select>
         <Input
           name='callTime'
-          onChange={(e: { target: { value: React.SetStateAction<string> } }) => setCallTime(e.target.value)}
+          onChange={(e: { target: { value: React.SetStateAction<string> } }) =>
+            setCallTime(e.target.value)
+          }
           value={callTime}
           placeholder={'Call Time in Minutes'}
           type={'number'}
@@ -111,7 +126,9 @@ export default function Home (): JSX.Element {
         <Select
           name='plan'
           value={plan}
-          onChange={(e: { target: { value: React.SetStateAction<string> } }) => setPlan(e.target.value)}
+          onChange={(e: { target: { value: React.SetStateAction<string> } }) =>
+            setPlan(e.target.value)
+          }
         >
           <option value={''} defaultValue={'string'} disabled hidden>
             FaleMais Plan

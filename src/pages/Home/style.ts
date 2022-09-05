@@ -10,7 +10,8 @@ export const Container = styled.div`
   width: 100%;
   max-width: 33rem;
 
-  h2, h1 {
+  h2,
+  h1 {
     text-align: center;
   }
 

@@ -35,7 +35,11 @@ export default function ModalPlanResult (data: ModalPlanDTO): JSX.Element {
                 <h2>{data.noPlanValue}</h2>
 
                 <h3>With FaleMais Price:</h3>
-                <h2><span>{data.planValue === '$0.00' ? 'FREE' : data.planValue}</span></h2>
+                <h2>
+                  <span>
+                    {data.planValue === '$0.00' ? 'FREE' : data.planValue}
+                  </span>
+                </h2>
               </ModalFormContent>
               <Button
                 name='OK'

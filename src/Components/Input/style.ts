@@ -23,7 +23,7 @@ export const Container = styled.div`
   }
 
   input:focus {
-    padding-bottom: 6px;  
+    padding-bottom: 6px;
     font-weight: 700;
     border-width: 2px;
     border-image: linear-gradient(to right, #11998e, #38ef7d);
@@ -36,7 +36,7 @@ export const Container = styled.div`
     margin: 0;
   }
 
-  input[type=number] {
+  input[type='number'] {
     -moz-appearance: textfield;
   }
 `

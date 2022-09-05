@@ -1,22 +1,24 @@
 import { getValuePerMinuteDTO } from './types/DataTypesProvider'
 
-export function getValuePerMinute (data: getValuePerMinuteDTO): number | undefined {
+export function getValuePerMinute (
+  data: getValuePerMinuteDTO
+): number | undefined {
   const originCity = data.originCity
   const destinationCity = data.destinationCity
 
   switch (true) {
     case originCity === '011' && destinationCity === '016':
-      return 1.90
+      return 1.9
     case originCity === '016' && destinationCity === '011':
-      return 2.90
+      return 2.9
     case originCity === '011' && destinationCity === '017':
-      return 1.70
+      return 1.7
     case originCity === '017' && destinationCity === '011':
-      return 2.70
+      return 2.7
     case originCity === '011' && destinationCity === '018':
-      return 0.90
+      return 0.9
     case originCity === '018' && destinationCity === '011':
-      return 1.90
+      return 1.9
     default:
       return undefined
   }

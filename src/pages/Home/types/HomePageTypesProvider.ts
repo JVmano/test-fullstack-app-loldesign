@@ -9,5 +9,5 @@ export interface ModalPlanDTO {
 }
 
 export interface ModalProps {
-  active: boolean;
+  active: boolean
 }
