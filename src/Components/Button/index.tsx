@@ -1,14 +1,8 @@
 import React from 'react'
-
 import { Container } from './style'
+import { GlobalButtonDTO } from './types/ButtonTypesProvider'
 
-type GlobalButtonType = {
-  type: 'button' | 'submit' | 'reset' | undefined
-  name: string
-  onClick: () => void
-}
-
-export default function Button (data: GlobalButtonType): JSX.Element {
+export default function Button (data: GlobalButtonDTO): JSX.Element {
   return (
     <Container>
       <button type={data.type} onClick={data.onClick}>

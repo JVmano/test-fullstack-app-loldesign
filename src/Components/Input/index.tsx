@@ -1,16 +1,8 @@
 import React from 'react'
 import { Container } from './style'
+import { GlobalInputPropsDTO } from './types/InputTypesProvider'
 
-type GlobalInputProps = {
-  name: string
-  type: 'email' | 'password' | 'text' | 'number' | undefined
-  maxLength?: number
-  placeholder?: string
-  onChange: any
-  value: string
-}
-
-export default function Input (data: GlobalInputProps): JSX.Element {
+export default function Input (data: GlobalInputPropsDTO): JSX.Element {
   return (
     <Container>
       <input
