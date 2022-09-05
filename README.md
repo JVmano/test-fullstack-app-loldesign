@@ -45,4 +45,4 @@ This project can be executed with any method that creates a local server such as
 
 This project was already hosted on FireBase Hosting and can be visited in this [link](https://telzir-loldesign-7c619.web.app).
 
-The deployed code was identical to this repository and it's only for functionally purposes.
+The deployed code is identical to this repository and it's only for functionally purposes.
