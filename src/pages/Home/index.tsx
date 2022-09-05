@@ -50,7 +50,7 @@ export default function Home (): JSX.Element {
       if (!plan) return toast.error('Plan missing')
 
       const pricePerMinute = getValuePerMinute({ originCity, destinationCity })
-      if (!pricePerMinute) return toast.error('Inexistent plan')
+      if (!pricePerMinute) return toast.error('Inexistent Plan')
 
       const { noPlanValue, planValue } = calculatePlan({ pricePerMinute, callTime, plan })
 
