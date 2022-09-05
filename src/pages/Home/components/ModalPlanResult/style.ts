@@ -106,7 +106,7 @@ export const ModalFormContent = styled.div`
 
 export const ModalBoxBack = styled.div`
   width: 100%;
-  min-width: 430px;
+  min-width: 375px;
   padding: 55px 50px;
   background: linear-gradient(99.58deg, #3562ff -2433.88%, #090909 83.07%);
   border: 1px solid #464646;
