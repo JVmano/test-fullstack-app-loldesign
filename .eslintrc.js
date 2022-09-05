@@ -1,7 +1,8 @@
 module.exports = {
   env: {
     browser: true,
-    es2021: true
+    es2021: true,
+    jest: true
   },
   extends: ['plugin:react/recommended', 'standard'],
   parser: '@typescript-eslint/parser',
@@ -17,5 +18,9 @@ module.exports = {
   rules: {},
   globals: {
     JSX: 'readonly'
-  }
+  },
+  files: [
+    '**/*.test.ts',
+    '**/*.test.tsx'
+  ]
 }
